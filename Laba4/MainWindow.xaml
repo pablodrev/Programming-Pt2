@@ -1,0 +1,33 @@
+﻿<Window x:Class="Laba4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Laba4" d:DataContext="{d:DesignInstance Type=local:ViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid x:Name="GridMain">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="0.2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="10 5" >
+                    <Label Content="Введите количество чисел:"></Label>
+                    <TextBox Text="{Binding nNumbers, UpdateSourceTrigger=PropertyChanged}" Name="nNumbersTextBox" Margin="0 0 250 0"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="10 5">
+                    <Label Content="Введите, сколько чисел должна загадать система:"></Label>
+                    <TextBox Text="{Binding nCorrectNumbers, UpdateSourceTrigger=PropertyChanged}" Name="nCorrectNumbersTextBox" Margin="0 0 250 0"></TextBox>
+                </StackPanel>
+                <Button Grid.Column="2" Content="Новая игра" Margin="10" Command="{Binding NewGameCommand}"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
